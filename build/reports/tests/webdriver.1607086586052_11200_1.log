@@ -1,0 +1,176 @@
+[1607086586.361][INFO]: Starting ChromeDriver 87.0.4280.88 (89e2380a3e36c3464b5dd1302349b1382549290d-refs/branch-heads/4280@{#1761}) on port 10044
+[1607086586.361][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1607086586.933][INFO]: [ac9b19938563740233bb141e0ce5a869] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "C:\\Users\\user\\IdeaProjects\\selenide-roz\\build\\downloads\\1607086585044_11200_1",
+               "plugins.always_open_pdf_externally": true,
+               "profile.default_content_setting_values.automatic_downloads": 1
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "C:\\Users\\user\\IdeaProjects\\selenide-roz\\build\\downloads\\1607086585044_11200_1",
+            "plugins.always_open_pdf_externally": true,
+            "profile.default_content_setting_values.automatic_downloads": 1
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1607086586.939][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "C:\\Users\\user\\IdeaProjects\\selenide-roz\\build\\downloads\\1607086585044_11200_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "automatic_downloads": 1,
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1607086586.940][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1607086586.942][INFO]: Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-background-networking --disable-backgrounding-occluded-windows --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir="C:\Users\user\AppData\Local\Temp\scoped_dir20192_532530818" data:,
+[1607086587.668][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1607086589.680][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1607086591.698][INFO]: [ac9b19938563740233bb141e0ce5a869] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "87.0.4280.66",
+      "chrome": {
+         "chromedriverVersion": "87.0.4280.88 (89e2380a3e36c3464b5dd1302349b1382549290d-refs/branch-heads/4280@{#1761})",
+         "userDataDir": "C:\\Users\\user\\AppData\\Local\\Temp\\scoped_dir20192_532530818"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:49860"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "ac9b19938563740233bb141e0ce5a869"
+}
+[1607086591.750][INFO]: [ac9b19938563740233bb141e0ce5a869] COMMAND SetWindowRect {
+   "height": 768,
+   "width": 1366
+}
+[1607086591.751][INFO]: Waiting for pending navigations...
+[1607086591.753][INFO]: Done waiting for pending navigations. Status: ok
+[1607086591.863][INFO]: Waiting for pending navigations...
+[1607086591.863][INFO]: Done waiting for pending navigations. Status: ok
+[1607086591.864][INFO]: [ac9b19938563740233bb141e0ce5a869] RESPONSE SetWindowRect {
+   "height": 768,
+   "width": 1366,
+   "x": 10,
+   "y": 10
+}
+[1607086591.868][INFO]: [ac9b19938563740233bb141e0ce5a869] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1607086591.868][INFO]: [ac9b19938563740233bb141e0ce5a869] RESPONSE SetTimeouts
+[1607086591.876][INFO]: [ac9b19938563740233bb141e0ce5a869] COMMAND Navigate {
+   "url": "https://rozetka.com.ua/"
+}
+[1607086591.876][INFO]: Waiting for pending navigations...
+[1607086591.877][INFO]: Done waiting for pending navigations. Status: ok
+[1607086592.312][INFO]: Waiting for pending navigations...
+[1607086599.561][INFO]: Done waiting for pending navigations. Status: ok
+[1607086599.561][INFO]: [ac9b19938563740233bb141e0ce5a869] RESPONSE Navigate
+[1607086599.578][INFO]: [ac9b19938563740233bb141e0ce5a869] COMMAND Quit {
+
+}
+[1607086599.696][INFO]: [ac9b19938563740233bb141e0ce5a869] RESPONSE Quit
