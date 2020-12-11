@@ -14,16 +14,15 @@ public class TestRozetka extends BaseTest {
     @Test
     public void firstTest() throws IOException {
         open("https://rozetka.com.ua/");
-        mainPage.clickSmartphone();
-        smartphonePage.clickGpsLink();
-        phonesPage.clickGpsLink();
-        mobilePage.getLValuesTitles();
-        mobilePage.getLValuesPrices();
-        List<String> mob = mobilePage.getValuesTitlesPages(3);
-        mobilePage.newFile(mob);
-        mobilePage.clickDropDown()
-                  .selectFilter()
-                  .compareRange();
+        new MainPage()
+                .clickSmartphone()
+                .clickGpsLink()
+                .clickMobLink()
+                .newFile()
+                .clickDropDown()
+                .selectFilter()
+                .compareRange();
+
 
     }
 

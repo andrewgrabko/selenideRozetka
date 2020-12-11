@@ -11,23 +11,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MobilePage {
 
-    private ElementsCollection valuesTitle = $$(byXpath("//span[text()=' Топ продаж ']/following-sibling::a[@class='goods-tile__heading']/span"));
-    private ElementsCollection valuesPrice = $$(byXpath("//span[text()=' Топ продаж ']/following-sibling::div[@class='goods-tile__prices']//span[@class='goods-tile__price-value']"));
-    private SelenideElement heading = $(byXpath("//h1[@class='catalog-heading']"));
-    private ElementsCollection priceForRange = $$(byXpath("//span[@class='goods-tile__price-value']"));
-    private SelenideElement dropDown = $(byXpath("//select[@class='select-css ng-untouched ng-pristine ng-valid']"));
-    private SelenideElement select = $(byXpath("//option[text()=' От дешевых к дорогим ']"));
-    private SelenideElement moreButton = $(byXpath("//span[@class='show-more__text']"));
+    private ElementsCollection valuesTitle = $$x("//span[text()=' Топ продаж ']/following-sibling::a[@class='goods-tile__heading']/span");
+    private ElementsCollection valuesPrice = $$x("//span[text()=' Топ продаж ']/following-sibling::div[@class='goods-tile__prices']//span[@class='goods-tile__price-value']");
+    private SelenideElement heading = $x("//h1[@class='catalog-heading']");
+    private ElementsCollection priceForRange = $$x("//span[@class='goods-tile__price-value']");
+    private SelenideElement dropDown = $x("//select[@class='select-css ng-untouched ng-pristine ng-valid']");
+    private SelenideElement select = $x("//option[text()=' От дешевых к дорогим ']");
+    private SelenideElement moreButton = $x("//span[@class='show-more__text']");
+    private SelenideElement pagPage(int position) {
+        return $x((String.format( "//a[@class='pagination__link'][contains(text(),'%s')]", position)));
+    }
 
 
     public List<String> getLValuesTitles(){
-        moreButton.waitUntil(Condition.visible, 6000);
+        moreButton.shouldBe(visible);
         ElementsCollection titles = $$(valuesTitle);
         List<String> valuesTitle = new ArrayList<>();
         for(SelenideElement value: titles){
@@ -37,7 +40,7 @@ public class MobilePage {
     }
 
     public List<String> getLValuesPrices(){
-        moreButton.waitUntil(Condition.visible, 6000);
+        moreButton.shouldBe(visible);
         ElementsCollection titles = $$(valuesPrice);
         List<String> valuesTitle = new ArrayList<>();
         for(SelenideElement value: titles){
@@ -50,10 +53,8 @@ public class MobilePage {
         List<String> titlePages = getLValuesTitles();
         List<String> pricePages = getLValuesPrices();
         for (int i = 2; i<=page; i++){
-            String xpath = "//a[@class='pagination__link'][contains(text(),'%s')]";
-            SelenideElement pagPage = $(byXpath(String.format(xpath,i)));
-            pagPage.click();
-            moreButton.waitUntil(Condition.visible, 5000);
+            pagPage(i).click();
+            moreButton.shouldBe(visible);
             titlePages.addAll(getLValuesTitles());
             pricePages.addAll(getLValuesPrices());
         }
@@ -65,12 +66,14 @@ public class MobilePage {
         return titlePrice;
     }
 
-    public void newFile (List<String> titlePrice) throws IOException {
+    public MobilePage newFile () throws IOException {
+        List<String> listPricesTitles = this.getValuesTitlesPages(3);
         FileWriter nFile = new FileWriter("C:/autodoc/result.txt");
-        for (String i: titlePrice){
+        for (String i:listPricesTitles){
             nFile.write(i+"\n");
         }
         nFile.close();
+        return this;
     }
 
     public List<Integer> priceInt(){
@@ -86,13 +89,13 @@ public class MobilePage {
 
     public MobilePage clickDropDown(){
         dropDown.click();
-        select.waitUntil(Condition.visible, 5000);
+        select.shouldBe(visible);
         return this;
     }
 
     public MobilePage selectFilter(){
         select.click();
-        heading.waitUntil(Condition.visible, 5000);
+        heading.shouldBe(visible);
         return this;
     }
 
@@ -100,6 +103,7 @@ public class MobilePage {
         List<Integer> pricesRoz = new ArrayList<>(priceInt());
         Collections.sort(pricesRoz);
         Assert.assertEquals(priceInt(),pricesRoz);
+
     }
 
 

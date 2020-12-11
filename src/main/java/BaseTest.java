@@ -1,26 +1,21 @@
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+
 public class BaseTest {
-    protected MainPage mainPage;
-    protected SmartphonePage smartphonePage;
-    protected PhonesPage phonesPage;
-    protected MobilePage mobilePage;
 
     @BeforeTest
     public void setBrowser(){
         Configuration.startMaximized = true;
-        //Configuration.holdBrowserOpen = true;
-        mainPage = new MainPage();
-        smartphonePage = new SmartphonePage();
-        phonesPage = new PhonesPage();
-        mobilePage = new MobilePage();
-
+        Configuration.timeout = 10000;
     }
 
-
-
-
+    @AfterTest
+    private void close() {
+        closeWebDriver();
+    }
 
 
 
