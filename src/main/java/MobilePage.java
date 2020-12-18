@@ -17,8 +17,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MobilePage {
 
-    private ElementsCollection valuesTitle = $$x("//span[text()=' Топ продаж ']/following-sibling::a[@class='goods-tile__heading']/span");
-    private ElementsCollection valuesPrice = $$x("//span[text()=' Топ продаж ']/following-sibling::div[@class='goods-tile__prices']//span[@class='goods-tile__price-value']");
+    private ElementsCollection valuesTitles = $$x("//span[text()=' Топ продаж ']/following-sibling::a[@class='goods-tile__heading']/span");
+    private ElementsCollection valuesPrices = $$x("//span[text()=' Топ продаж ']/following-sibling::div[@class='goods-tile__prices']//span[@class='goods-tile__price-value']");
     private SelenideElement heading = $x("//h1[@class='catalog-heading']");
     private ElementsCollection priceForRange = $$x("//span[@class='goods-tile__price-value']");
     private SelenideElement dropDown = $x("//select[@class='select-css ng-untouched ng-pristine ng-valid']");
@@ -31,9 +31,8 @@ public class MobilePage {
 
     public List<String> getLValuesTitles(){
         moreButton.shouldBe(visible);
-        ElementsCollection titles = $$(valuesTitle);
         List<String> valuesTitle = new ArrayList<>();
-        for(SelenideElement value: titles){
+        for(SelenideElement value: valuesTitles){
             valuesTitle.add(value.getText());
         }
         return valuesTitle;
@@ -41,12 +40,11 @@ public class MobilePage {
 
     public List<String> getLValuesPrices(){
         moreButton.shouldBe(visible);
-        ElementsCollection titles = $$(valuesPrice);
-        List<String> valuesTitle = new ArrayList<>();
-        for(SelenideElement value: titles){
-            valuesTitle.add(value.getText());
+        List<String> valuesPrice = new ArrayList<>();
+        for(SelenideElement value: valuesPrices){
+            valuesPrice.add(value.getText());
         }
-        return valuesTitle;
+        return valuesPrice;
     }
 
     public List<String> getValuesTitlesPages(int page){
@@ -77,10 +75,9 @@ public class MobilePage {
     }
 
     public List<Integer> priceInt(){
-        ElementsCollection prices = $$(priceForRange);
         List<String> priceInt = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        for (WebElement myInt: prices){
+        for (WebElement myInt: priceForRange){
             list.add(Integer.parseInt(myInt.getText().replaceAll(" ","")));
             priceInt.add(myInt.getText());
         }
@@ -103,7 +100,6 @@ public class MobilePage {
         List<Integer> pricesRoz = new ArrayList<>(priceInt());
         Collections.sort(pricesRoz);
         Assert.assertEquals(priceInt(),pricesRoz);
-
     }
 
 
