@@ -1,10 +1,6 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +8,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MobilePage {
@@ -77,7 +72,7 @@ public class MobilePage {
     public List<Integer> priceInt(){
         List<String> priceInt = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        for (WebElement myInt: priceForRange){
+        for (SelenideElement myInt: priceForRange){
             list.add(Integer.parseInt(myInt.getText().replaceAll(" ","")));
             priceInt.add(myInt.getText());
         }
